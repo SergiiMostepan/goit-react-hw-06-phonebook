@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import styles from './InputForm.module.css';
 
 class InputForm extends Component {
-  // static propTypes = {
-  //   onAddContacts: PropTypes.func.isRequired,
-  // };
+  static propTypes = {
+    addContact: PropTypes.func.isRequired,
+    isExist: PropTypes.func.isRequired,
+    contactState: PropTypes.array.isRequired,
+  };
 
   state = {
     userName: '',

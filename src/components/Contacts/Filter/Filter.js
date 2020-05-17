@@ -15,4 +15,9 @@ const Filter = ({ filterState, changeFilter }) => (
   </div>
 );
 
+Filter.propTypes = {
+  filterState: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
+};
+
 export default Filter;

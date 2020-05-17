@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 import localStorageLoader from '../../utils/localStorage';
 import Section from './Section/Section';
 import InputForm from './InputForm/InputFirmContainer';
@@ -18,6 +19,12 @@ const taskFilter = (contacts, filter) => {
 };
 
 class Contacts extends Component {
+  static propTypes = {
+    addContacts: PropTypes.func.isRequired,
+    filterState: PropTypes.string.isRequired,
+    contactState: PropTypes.array.isRequired,
+  };
+
   state = {
     isLoaded: false,
     isContactExist: false,
