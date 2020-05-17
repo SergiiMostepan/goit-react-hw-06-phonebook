@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import shortid from 'shortid';
-import * as contactActions from '../../../Redux/contactsActions';
 import PropTypes from 'prop-types';
 import styles from './InputForm.module.css';
 
@@ -23,13 +20,13 @@ class InputForm extends Component {
 
   isContactExist = e => {
     if (
-      this.props.contactState.contacts.find(
+      this.props.contactState.find(
         item =>
           item.userName.toLowerCase() === this.state.userName.toLowerCase(),
       )
     ) {
-      this.props.isContactExist();
-      setTimeout(() => this.props.isContactExist(), 1000);
+      this.props.isExist();
+      setTimeout(() => this.props.isExist(), 1000);
 
       return;
     }
@@ -74,20 +71,4 @@ class InputForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  contactState: state,
-});
-
-const mapDispatchToProps = dispatch => ({
-  addContact: (e, state) =>
-    dispatch(
-      contactActions.addContact({
-        userName: state.userName,
-        userPhone: state.userPhone,
-        id: shortid.generate(),
-      }),
-    ),
-  isContactExist: () => dispatch(contactActions.isContactExist()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(InputForm);
+export default InputForm;

@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as contactActions from '../../../Redux/contactsActions';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ContactTransition from '../transitions/Contacts.module.css';
@@ -41,8 +39,4 @@ ContactList.propTypes = {
   // ondeleteContact: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  deleteContact: id => dispatch(contactActions.deleteContact(id)),
-});
-
-export default connect(null, mapDispatchToProps)(ContactList);
+export default ContactList;

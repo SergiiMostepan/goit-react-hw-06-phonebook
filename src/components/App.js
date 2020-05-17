@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import 'normalize.css';
-import Contacts from './Contacts/Contacts';
+import Contacts from './Contacts/ContactsContainer';
 
 const App = () => (
   <Fragment>
