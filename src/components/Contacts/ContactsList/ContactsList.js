@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ContactTransition from '../transitions/Contacts.module.css';
+import ContactContainer from './ContacContainer';
 import styles from './Contactlist.module.css';
 
 const ContactList = ({ contacts, deleteContact }) =>
@@ -9,18 +10,7 @@ const ContactList = ({ contacts, deleteContact }) =>
     <TransitionGroup component="ul" className={styles.continer}>
       {contacts.map(({ userName, userPhone, id }) => (
         <CSSTransition key={id} timeout={250} classNames={ContactTransition}>
-          <li className={styles.contact}>
-            <div className={styles.userData}>
-              <div> {userName} </div> <div>{userPhone}</div>
-            </div>
-            <button
-              className={styles.button}
-              type="button"
-              onClick={() => deleteContact(id)}
-            >
-              <span> &#215;</span>
-            </button>
-          </li>
+          <ContactContainer userName={userName} userPhone={userPhone} id={id} />
         </CSSTransition>
       ))}
     </TransitionGroup>
@@ -36,7 +26,6 @@ ContactList.propTypes = {
       id: PropTypes.string.isRequired,
     }),
   ),
-  deleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;

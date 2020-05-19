@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
-import localStorageLoader from '../../utils/localStorage';
+// import localStorageLoader from '../../utils/localStorage';
 import Section from './Section/Section';
 import InputForm from './InputForm/InputFirmContainer';
-import ContactList from './ContactsList/ContacListContainer';
+import ContactList from './ContactsList/ContactsList';
 import Filter from './Filter/FilterContainer';
 import HeaderTransition from './transitions/PhonebookHeader.module.css';
 import Notify from '../../utils/Notification';
@@ -30,20 +30,20 @@ class Contacts extends Component {
     isContactExist: false,
   };
 
-  componentDidMount() {
-    this.setState({
-      isLoaded: true,
-    });
-    const contactsFromLS = localStorageLoader.load('contacts');
-    if (contactsFromLS) {
-      this.props.addContacts(contactsFromLS);
-    }
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     isLoaded: true,
+  //   });
+  //   const contactsFromLS = localStorageLoader.load('contacts');
+  //   if (contactsFromLS) {
+  //     this.props.addContacts(contactsFromLS);
+  //   }
+  // }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.contactState !== this.props.contactState)
-      localStorageLoader.save('contacts', this.props.contactState);
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.contactState !== this.props.contactState)
+  //     localStorageLoader.save('contacts', this.props.contactState);
+  // }
 
   hendleContactExist = () => {
     this.setState({
