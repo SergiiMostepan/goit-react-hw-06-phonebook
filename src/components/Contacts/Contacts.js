@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
-// import localStorageLoader from '../../utils/localStorage';
 import Section from './Section/Section';
 import InputForm from './InputForm/InputFirmContainer';
 import ContactList from './ContactsList/ContactsList';
@@ -20,7 +19,7 @@ const taskFilter = (contacts, filter) => {
 
 class Contacts extends Component {
   static propTypes = {
-    addContacts: PropTypes.func.isRequired,
+    addContacts: PropTypes.func,
     filterState: PropTypes.string.isRequired,
     contactState: PropTypes.array.isRequired,
   };
@@ -29,21 +28,6 @@ class Contacts extends Component {
     isLoaded: false,
     isContactExist: false,
   };
-
-  // componentDidMount() {
-  //   this.setState({
-  //     isLoaded: true,
-  //   });
-  //   const contactsFromLS = localStorageLoader.load('contacts');
-  //   if (contactsFromLS) {
-  //     this.props.addContacts(contactsFromLS);
-  //   }
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.contactState !== this.props.contactState)
-  //     localStorageLoader.save('contacts', this.props.contactState);
-  // }
 
   hendleContactExist = () => {
     this.setState({

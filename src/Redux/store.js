@@ -26,15 +26,6 @@ const middleware = [...getDefaultMiddleware(defaultMiddlewareConfig)];
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// const store = configureStore({
-//   reducer: {
-//     contactState: contactSlice.reducer,
-//     filterState: filterSlice.reducer,
-//   },
-// });
-
-// export default store;
-
 export const store = configureStore({
   reducer: persistedReducer,
   middleware,
